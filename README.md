@@ -1,3 +1,16 @@
+# Baselines-fix
+
+Fork of baselines with the ScaledFloatFrame fix which doubles the fps performance on retro environments.
+I made a fork since baselines is in maintenance mode and seems to not process PRs anymore.
+
+The frame was normalized two times when using retro envs. Once on the GPU and once on CPU side with the ScaledFloatFrame wrapper. This is fix sets the use of ScaledFloatFrame wrapper to False by default greatly reducing the simulation time on CPU side.
+
+This bug also affected the training results on retro games since the input data was not correct.
+
+More details here:
+[https://github.com/openai/baselines/issues/736](https://github.com/openai/baselines/issues/736)
+
+
 **Status:** Maintenance (expect bug fixes and minor updates)
 
 <img src="data/logo.jpg" width=25% align="right" /> [![Build status](https://travis-ci.org/openai/baselines.svg?branch=master)](https://travis-ci.org/openai/baselines)
