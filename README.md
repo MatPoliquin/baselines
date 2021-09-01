@@ -1,6 +1,6 @@
 # Baselines-fix
 
-Fork of baselines with the ScaledFloatFrame fix which doubles the fps performance on retro environments.
+Fork of baselines with the ScaledFloatFrame fix which **doubles the fps performance** on retro environments.
 I made a fork since OpenAI's baselines project is in maintenance mode and seems to not process PRs anymore.
 
 The frame was normalized two times when using retro envs. Once on the GPU and once on CPU side with the ScaledFloatFrame wrapper. This fix sets the use of ScaledFloatFrame wrapper to False by default greatly reducing the simulation time on CPU side.
