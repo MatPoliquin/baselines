@@ -10,6 +10,9 @@ This bug also affected the training results on retro games since the input data 
 More details here:
 [https://github.com/openai/baselines/issues/736](https://github.com/openai/baselines/issues/736)
 
+### Added Feature
+*   Print model info and number of parameters (ie 1.7M param for nature cnn) when using --play argument
+
 
 **Status:** Maintenance (expect bug fixes and minor updates)
 
