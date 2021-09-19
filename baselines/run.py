@@ -47,6 +47,13 @@ _game_envs['retro'] = {
     'Vectorman-Genesis',
     'FinalFight-Snes',
     'SpaceInvaders-Snes',
+    'Pong-Atari2600',
+    'Berzerk-Atari2600',
+    'MortalKombatII-Genesis',
+    'SuperMarioBros2Japan-Nes',
+    'HangOn-Sms',
+    'PunchOut-Nes',
+    'WWFArcade-Genesis'
 }
 
 
@@ -198,6 +205,18 @@ def configure_logger(log_path, **kwargs):
     else:
         logger.configure(**kwargs)
 
+def print_model_info():
+    print("========= Model Info =========")
+    total_params = 0
+    for v in tf.trainable_variables():
+        print(v)
+        shape = v.get_shape()
+        count = 1
+        for dim in shape:
+            count *= dim.value
+            total_params += count
+    print("Total trainable parameters:%d" % total_params)
+    print("=========            =========")
 
 def main(args):
     # configure logger, disable logging in child MPI processes (with rank > 0)
@@ -220,6 +239,8 @@ def main(args):
         model.save(save_path)
 
     if args.play:
+        print_model_info()
+
         logger.log("Running trained model")
         obs = env.reset()
 
